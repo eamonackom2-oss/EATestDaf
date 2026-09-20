@@ -38,11 +38,15 @@ jobs:
             "platforms;android-35" \
             "build-tools;35.0.0"
 
-      - name: Install Gradle
+      - name: Install Gradle 8.9
         run: |
-          wget -q https://services.gradle.org/distributions/gradle-8.7-bin.zip
+          wget -q https://services.gradle.org/distributions/gradle-8.9-bin.zip
           unzip -q gradle-8.9-bin.zip
           echo "$PWD/gradle-8.9/bin" >> "$GITHUB_PATH"
+
+      - name: Check Gradle version
+        run: |
+          gradle --version
 
       - name: Build DeutschSprint APK
         run: |
